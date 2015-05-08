@@ -19,11 +19,12 @@ class Service {
         }
         return $str;
     }
-    
-    static function get_slider_skripts($id){
+
+    static function get_slider_skripts($id) {
         settype($id, 'integer');
-        $str = <<<TEXT
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+        if (!$id || $id === 1) {
+            $str = <<<TEXT
+        <script type="text/javascript" src="js/jquery.min.js"></script> 
         <script type="text/javascript" src="js/slides.js"></script>
         <script type="text/javascript">
             $(function () {
@@ -33,10 +34,9 @@ class Service {
             });
         </script>
 TEXT;
-        if(!$id || $id === 1)
-        {
             return $str;
         }
+        return NULL;
     }
 
 }
