@@ -21,7 +21,22 @@ class Service {
     }
     
     static function get_slider_skripts($id){
-        
+        settype($id, 'integer');
+        $str = <<<TEXT
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+        <script type="text/javascript" src="js/slides.js"></script>
+        <script type="text/javascript">
+            $(function () {
+                $("#slides").slides({
+                    responsive: true
+                });
+            });
+        </script>
+TEXT;
+        if(!$id || $id === 1)
+        {
+            return $str;
+        }
     }
 
 }
