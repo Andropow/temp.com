@@ -28,7 +28,7 @@ $page = $vp->get_page($id);
             </header>
             <div class="middle">
                 <div class="container">
-                    <?php $vp->get_content($id) ?>
+                    <?php $vp->get_content($id); ?>
                 </div>
             </div>
             <footer class='footer'> </footer>
