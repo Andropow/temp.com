@@ -1,6 +1,6 @@
 <?php
 
-class Service {
+class Service { 
 
     public static function k_debug($arr) {
         echo "<pre>";
