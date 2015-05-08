@@ -14,15 +14,7 @@ $page = $vp->get_page($id);
         <link rel="shortcut icon" type="image/png" href="img/icon.png" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title><?=$page['title']; ?></title>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
-        <script type="text/javascript" src="js/slides.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                $("#slides").slides({
-                    responsive: true
-                });
-            });
-        </script>
+       <?=  Service::get_slider_skripts($id);?>
     </head>
     <body>
         <div class="wrapper">
