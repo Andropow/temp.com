@@ -19,6 +19,13 @@ class Service {
         }
         return $str;
     }
+    
+    static function clean_data($arr){
+        foreach ($arr as $key => $value) {
+           $value = Service::clean_text($value);
+        }
+        return $arr;
+    }
 
     static function get_slider_skripts($id) {
         settype($id, 'integer');

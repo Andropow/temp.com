@@ -1,6 +1,6 @@
 <?php
 
-require_once Config::app_path() . 'config/debug.php';
+require_once Config::app_path() . 'config/service.php';
 
 class Config {
 
