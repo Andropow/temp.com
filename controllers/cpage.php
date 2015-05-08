@@ -25,6 +25,11 @@ class Cpage extends Mpage{
         $row = $res->fetch_assoc();
         return $row['content'];
     }  
+    
+    function create_page($post) {
+        $res = parent::create_page($post);
+        return $res;   
+    }
 }
 
 

@@ -32,4 +32,14 @@ class Mpage extends Db{
         $res = $this->sql($sql);
         return $res;
     }
+    
+    function create_page($post){
+        $sql = "INSERT INTO tempdb.pages (`Id`, `description`, `keywords`, `title`, "
+                . "`menu_name`, `menu_position`, `content`, `created_date`, "
+                . "`last_mod`, `visible`, `url`) VALUES (null,'{$post['description']}','{$post['keywords']}'"
+                . ",'{$post['title']}','{$post['menu_name']}',{$post['menu_position']},'{$post['content']}',null,"
+                . "null,{$post['visible']},null)";  
+                
+       return  $this->sql($sql) ? TRUE : FALSE;   
+    }
 }
