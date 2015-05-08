@@ -10,21 +10,21 @@ class Vpage extends Cpage {
             echo "<a href=\"?id={$uri}\">{$link}</a>";
         }
     }
-    
-    function list_pages($actual_link){
+
+    function list_pages() {
         $vmenu = parent::get_menu(0);
-        echo '<ul class listpage>';
+        echo '<ul class="listpage">';
         foreach ($vmenu as $uri => $link) {
-            echo "<li><a href=\"{$actual_link}&id={$uri}\">{$link}</a></li>";
+            echo "<li><a href=\"?id={$uri}\">{$link}</a></li>";
         }
         echo '<ul/>';
     }
-            
+
     function get_page($id) {
         $res = parent::get_page($id);
         return $res;
     }
-    
+
     function get_content($id) {
         settype($id, 'integer');
         $res = parent::get_content($id);
@@ -33,6 +33,5 @@ class Vpage extends Cpage {
             require_once dirname(__FILE__) . "/../views/varticles.php";
         }
     }
+
 }
-
-

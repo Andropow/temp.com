@@ -9,6 +9,7 @@ class Service {
     }
 
     static function clean_text($str) {
+        
         if (get_magic_quotes_gpc()) {
             $str = str_replace('\"', "&quot;", $str);
             $str = str_replace('\'', "&039;", $str);
@@ -22,9 +23,9 @@ class Service {
     
     static function clean_data($arr){
         foreach ($arr as $key => $value) {
-           $value = Service::clean_text($value);
+           $tmp[$key] = Service::clean_text($value);
         }
-        return $arr;
+        return $tmp;
     }
 
     static function get_slider_skripts($id) {

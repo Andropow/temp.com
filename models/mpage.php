@@ -45,8 +45,14 @@ class Mpage extends Db{
                 . "`last_mod`, `visible`, `url`) VALUES (null,'{$post['description']}','{$post['keywords']}'"
                 . ",'{$post['title']}','{$post['menu_name']}',{$post['menu_position']},'{$post['content']}',NOW(),"
                 . "null,{$post['visible']},null)";  
-        Service::k_debug($post);
-                return 1;      
-       //return  $this->sql($sql) ? TRUE : FALSE;   
+                
+        return  $this->sql($sql) ? TRUE : FALSE;   
+    }
+    
+    function update_page($id, $post){
+        $sql = "UPDATE `pages` SET `description`='{$post['description']}',`keywords`='{$post['keywords']}'"
+        . ",`title`='{$post['title']}',`menu_name`='{$post['menu_name']}',`menu_position`={$post['menu_position']}"
+        . ",`content`='{$post['content']}',`last_mod`=NOW(),`visible`={$post['visible']} WHERE `menu_position` = {$id}";
+         return  $this->sql($sql) ? TRUE : FALSE;   
     }
 }
