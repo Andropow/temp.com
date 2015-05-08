@@ -19,5 +19,9 @@ class Service {
         }
         return $str;
     }
+    
+    static function get_slider_skripts($id){
+        
+    }
 
 }
