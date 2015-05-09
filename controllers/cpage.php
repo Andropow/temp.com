@@ -33,7 +33,7 @@ class Cpage extends Mpage{
     }
     
     function update_page($id, $post) {
-        //$post = Service::clean_data($post);
+        $post = Service::clean_data($post);
         return parent::update_page($id, $post);
     }
 }
