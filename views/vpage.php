@@ -17,7 +17,7 @@ class Vpage extends Cpage {
         foreach ($vmenu as $uri => $link) {
             echo "<li><a href=\"?id={$uri}\">{$link}</a></li>";
         }
-        echo '<ul/>';
+        echo '</ul>';
     }
 
     function get_page($id) {

@@ -1,4 +1,4 @@
-<form method="post">
+<form method="post" class="forms">
     <label>Description: </label>
     <input type="text" name="description" value="<?= $cur_page['description'];?>"/><br/>
     <label>Keywords: </label>
@@ -16,7 +16,7 @@
     </select><br/>
     <label>Content: </label><br/>
     <textarea name="content" maxlength="1024" ><?= $cur_page['content'] ;?></textarea><br/>
-    <input type="submit" name="<?=$button_name?>" value="<?=$button_name == 'create'? 'Create' : 'Update'?>"/>
+    <input type="submit" name="<?=$page_button_name?>" value="<?=$page_button_name == 'create'? 'Create' : 'Update'?>"/>
 </form>
 
 
