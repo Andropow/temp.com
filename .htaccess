@@ -1,5 +1,5 @@
 DirectoryIndex index.php index.html index.htm
-php_value memory_limit 40M 
+#php_value memory_limit 40M 
 php_flag magic_quotes_gpc Off
 php_flag magic_quotes_sybase Off
 php_flag magic_quotes_runtime Off
