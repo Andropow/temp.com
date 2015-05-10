@@ -33,5 +33,19 @@ class Vpage extends Cpage {
             require_once dirname(__FILE__) . "/../views/varticles.php";
         }
     }
+    
+    function menu_pos($iscreate, $selected) {
+        $res = parent::menu_pos($iscreate);
+        $count = count($res);
+        foreach ($res as $name => $pos) {
+            if ($iscreate == 'create'){
+                $sel = $pos == $count? 'selected' : null;
+                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>";
+            }else{
+                $sel = $pos == $selected? 'selected' : null;
+                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>";
+            }
+        }
+    }
 
 }

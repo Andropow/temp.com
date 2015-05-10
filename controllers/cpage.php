@@ -28,13 +28,24 @@ class Cpage extends Mpage{
     
     function create_page($post) {
         $post = Service::clean_data($post);
-        $res = parent::create_page($post);
-        return $res;   
+        return parent::create_page($post);    
     }
     
     function update_page($id, $post) {
         $post = Service::clean_data($post);
         return parent::update_page($id, $post);
+    }
+    
+    function menu_pos($iscreate) {
+        $res = parent::menu_pos();
+          while ($row = $res->fetch_assoc()){
+              $menu[$row['menu_name']] = $row['menu_position'];
+          }
+          $count = count($menu) + 1;
+          if ($iscreate == 'create'){
+              $menu['In last position'] = $count;
+          }
+          return $menu;
     }
 }
 

@@ -6,7 +6,7 @@ class Mpage extends Db{
         
     function get_menu($visible = 1){
         $sql = "select `Id`,`menu_position`,`menu_name`,`visible` from tempdb.pages where "
-                . "`visible` = {$visible} order by `menu_position`";
+                . "`visible` = '{$visible}' order by `menu_position`";
         if (!$visible){
             $sql = "select `Id`,`menu_position`,`menu_name`,`visible` from tempdb.pages"
                 ." order by `menu_position`";
@@ -44,7 +44,7 @@ class Mpage extends Db{
                 . "`menu_name`, `menu_position`, `content`, `created_date`, "
                 . "`last_mod`, `visible`, `url`) VALUES (null,'{$post['description']}','{$post['keywords']}'"
                 . ",'{$post['title']}','{$post['menu_name']}',{$post['menu_position']},'{$post['content']}',NOW(),"
-                . "null,{$post['visible']},null)";  
+                . "null,'{$post['visible']}',null)";  
                 
         return  $this->sql($sql) ? TRUE : FALSE;   
     }
@@ -52,7 +52,12 @@ class Mpage extends Db{
     function update_page($id, $post){
         $sql = "UPDATE `pages` SET `description`='{$post['description']}',`keywords`='{$post['keywords']}'"
         . ",`title`='{$post['title']}',`menu_name`='{$post['menu_name']}',`menu_position`={$post['menu_position']}"
-        . ",`content`='{$post['content']}',`last_mod`=NOW(),`visible`={$post['visible']} WHERE `menu_position` = {$id}";
+        . ",`content`='{$post['content']}',`last_mod`=NOW(),`visible`='{$post['visible']}' WHERE `menu_position` = {$id}";
          return  $this->sql($sql) ? TRUE : FALSE;   
+    }
+    
+    function menu_pos(){
+        $sql = "select `menu_position`, `menu_name` from tempdb.pages order by `menu_position` asc";
+        return $this->sql($sql);
     }
 }
