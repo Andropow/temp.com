@@ -8,13 +8,13 @@ $page = $vp->get_page($id);
 <html lang="uk">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="<?=$page['description'];?>" />
+        <meta name="description" content="<?= $page['description']; ?>" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="<?=$page['keywords']; ?>">
+        <meta name="keywords" content="<?= $page['keywords']; ?>">
         <link rel="shortcut icon" type="image/png" href="img/icon.png" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
-        <title><?=$page['title']; ?></title>
-       <?=  Service::get_slider_skripts($page['Id']);?>
+        <title><?= $page['title']; ?></title>
+        <?= Service::get_slider_skripts($page['Id']); ?>
     </head>
     <body>
         <div class="wrapper">

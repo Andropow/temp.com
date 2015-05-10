@@ -40,10 +40,10 @@ class Vpage extends Cpage {
         foreach ($res as $name => $pos) {
             if ($iscreate == 'create'){
                 $sel = $pos == $count? 'selected' : null;
-                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>";
+                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>\n";
             }else{
                 $sel = $pos == $selected? 'selected' : null;
-                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>";
+                echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>\n";
             }
         }
     }

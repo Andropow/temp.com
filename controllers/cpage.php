@@ -27,12 +27,10 @@ class Cpage extends Mpage {
     }
 
     function create_page($post) {
-        $post = Service::clean_data($post);
         return parent::create_page($post);
     }
 
     function update_page($post) {
-        $post = Service::clean_data($post);
         $old_pos = $this->menu_pos()[$post['menu_name']];
         if ($old_pos != $post['menu_position']) {
             $this->pos_inc($post['menu_position']);
