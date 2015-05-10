@@ -14,7 +14,7 @@ $page = $vp->get_page($id);
         <link rel="shortcut icon" type="image/png" href="img/icon.png" />
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <title><?=$page['title']; ?></title>
-       <?=  Service::get_slider_skripts($id);?>
+       <?=  Service::get_slider_skripts($page['Id']);?>
     </head>
     <body>
         <div class="wrapper">

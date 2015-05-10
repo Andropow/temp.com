@@ -16,11 +16,11 @@ class Mpage extends Db{
     }
     
     function get_page($id){
-        $sql = "select `content`,`title`,`description`,`keywords`,`menu_name`"
+        $sql = "select `Id`, `content`,`title`,`description`,`keywords`,`menu_name`"
                 . ",`menu_position`,`visible` from tempdb.pages where `menu_position` = {$id}"
                 . " limit 1";
         if(!$id){
-            $sql = "select `content`,`title`,`description`,`keywords` ,`menu_name`"
+            $sql = "select `Id`, `content`,`title`,`description`,`keywords` ,`menu_name`"
                 . ",`menu_position`,`visible`from tempdb.pages order by `menu_position` asc"
                 . " limit 1";
         }
@@ -44,20 +44,25 @@ class Mpage extends Db{
                 . "`menu_name`, `menu_position`, `content`, `created_date`, "
                 . "`last_mod`, `visible`, `url`) VALUES (null,'{$post['description']}','{$post['keywords']}'"
                 . ",'{$post['title']}','{$post['menu_name']}',{$post['menu_position']},'{$post['content']}',NOW(),"
-                . "null,'{$post['visible']}',null)";  
-                
+                . "null,'{$post['visible']}',null)";     
+        $this->pos_inc($post['menu_position']);
         return  $this->sql($sql) ? TRUE : FALSE;   
     }
     
-    function update_page($id, $post){
-        $sql = "UPDATE `pages` SET `description`='{$post['description']}',`keywords`='{$post['keywords']}'"
+    function update_page($post){  
+        $sql = "UPDATE tempdb.pages SET `description`='{$post['description']}',`keywords`='{$post['keywords']}'"
         . ",`title`='{$post['title']}',`menu_name`='{$post['menu_name']}',`menu_position`={$post['menu_position']}"
-        . ",`content`='{$post['content']}',`last_mod`=NOW(),`visible`='{$post['visible']}' WHERE `menu_position` = {$id}";
-         return  $this->sql($sql) ? TRUE : FALSE;   
+        . ",`content`='{$post['content']}',`last_mod`=NOW(),`visible`='{$post['visible']}' WHERE `Id` = {$post['Id']}";
+        return  $this->sql($sql) ? TRUE : FALSE;   
     }
     
     function menu_pos(){
         $sql = "select `menu_position`, `menu_name` from tempdb.pages order by `menu_position` asc";
         return $this->sql($sql);
+    }
+    
+    function pos_inc($pos){
+        $sql = "UPDATE tempdb.pages SET `menu_position` = `menu_position` + 1 where `menu_position` >= {$pos}";
+        $this->sql($sql);
     }
 }

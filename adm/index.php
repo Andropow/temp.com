@@ -14,7 +14,7 @@ $cur_page = null;
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/adminka.css">
-        <title>Admin Module</title>
+        <title><?=$cur_page['Id'];?>Admin Module</title>
     </head>
     <body>
         <div class="wrapper">
@@ -24,9 +24,11 @@ $cur_page = null;
                     <main class="content">
                         <?php
                         if (filter_input(INPUT_POST, 'create')) {
-                            $cp->create_page($_POST);
+                            $cp->create_page(filter_input_array(INPUT_POST));
                         } elseif (filter_input(INPUT_POST, 'update')) {
-                            $cp->update_page($id, $_POST);
+                         $arr = filter_input_array(INPUT_POST);  
+                         $arr['Id'] =  $vp->get_page($id)['Id'];
+                         $cp->update_page($arr);
                         }
 
 

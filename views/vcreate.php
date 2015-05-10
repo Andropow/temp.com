@@ -7,7 +7,7 @@
     <input type="text" name="title" value="<?= $cur_page['title']; ?>"/><br/>
     <label>Menu name: </label>
     <input type="text" name="menu_name" value="<?= $cur_page['menu_name']; ?>"/><br/>
-    <label>Menu position </label><?= $cur_page['menu_position']; ?>
+    <label>Menu position </label>
     <select name="menu_position">
         <?php $menu = $vp->menu_pos($page_button_name, $cur_page['menu_position']); ?>
     </select><br/>
