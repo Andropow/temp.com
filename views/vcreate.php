@@ -19,7 +19,7 @@
     </select><br/>
     <label>Content: </label><br/>
     <textarea name="content" maxlength="1024" ><?= $cur_page['content']; ?></textarea><br/>
-    <input class="button" type="submit" name="<?= $page_button_name; ?>" value="<?= $page_button_name == 'create' ? 'Create' : 'Update'; ?>"/>
+    <input class="button" type="submit" name="submit" value="<?= $page_button_name; ?>"/>
 </form>
 
 

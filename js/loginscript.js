@@ -1,7 +1,30 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$(document).ready(function () {
+
+//    if(true){
+//        $(".hide").css("visibility", "visible");
+//    }
+//    $(".hide").click(function () {
+//        
+//    });//css("visibility", "hidden");
+ $("textarea").ready(function(){
+     tinymce.init({
+        selector: "textarea",
+        language: 'uk_UA',
+        plugins: [
+            "advlist autolink link lists charmap preview hr anchor pagebreak spellchecker",
+            "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
+            "save table contextmenu directionality template paste textcolor",
+            "paste"
+        ],
+        content_css: "css/content.css",
+        paste_webkit_styles: "color font-size"
+    });
+ });
+});
+
+
+
+
+
 
 

@@ -15,22 +15,9 @@ $cur_page = null;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="../css/adminka.css">
         <script type="text/javascript" src="../tinymce/tinymce.min.js"></script>
-        <title><?= $cur_page['Id']; ?>Admin Module</title>
-        <script type="text/javascript">
-            tinymce.init({
-                selector: "textarea",
-                language: 'uk_UA',
-                plugins: [
-                    "advlist autolink link lists charmap preview hr anchor pagebreak spellchecker",
-                    "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime nonbreaking",
-                    "save table contextmenu directionality template paste textcolor",
-                    "paste"
-                ],
-                content_css: "css/content.css",
-                paste_webkit_styles: "color font-size"
-            });
-
-        </script>
+        <script type="text/javascript" src="../js/jquery.min.js"></script>
+        <script type="text/javascript" src="../js/loginscript.js"></script>
+        <title>Admin Module</title>
     </head>
     <body>
         <div class="wrapper">
@@ -39,28 +26,28 @@ $cur_page = null;
                 <div class="container">
                     <main class="content">
                         <?php
-                        if (filter_input(INPUT_POST, 'create')) {
-                            $cp->create_page(filter_input_array(INPUT_POST));
-                        } elseif (filter_input(INPUT_POST, 'update')) {
-                            $arr = filter_input_array(INPUT_POST);
-                            $arr['Id'] = $vp->get_page($id)['Id'];
-                            $cp->update_page($arr);
-                        }
-
-
-                        if (filter_input(INPUT_GET, 'id')) {
-                            $page_button_name = 'update';
-                            $cur_page = $vp->get_page($id);
-                            require_once Config::app_path() . "views/vcreate.php";
-                        }
-
-                        switch (filter_input(INPUT_GET, 'page')) {
-                            case 'create':
-                                $page_button_name = 'create';
-                                require_once Config::app_path() . "views/vcreate.php";
+                        require_once Config::app_path() . "views/vlogin.php";
+                       
+                        switch (filter_input(INPUT_POST, 'submit')) {
+                            case 'Create':
+                                $cp->create_page(filter_input_array(INPUT_POST));
+                                break;
+                            case 'Update':
+                                $arr = filter_input_array(INPUT_POST);
+                                $arr['Id'] = $vp->get_page($id)['Id'];
+                                $cp->update_page($arr);
                                 break;
                             default:
                                 break;
+                        }
+
+                        if (filter_input(INPUT_GET, 'id')) {
+                            $page_button_name = 'Update';
+                            $cur_page = $vp->get_page($id);
+                            require_once Config::app_path() . "views/vcreate.php";
+                        } elseif (filter_input(INPUT_GET, 'page')) {
+                            $page_button_name = 'Create';
+                            require_once Config::app_path() . "views/vcreate.php";
                         }
                         ?>
                     </main><!-- .content -->
