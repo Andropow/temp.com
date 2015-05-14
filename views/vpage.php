@@ -15,7 +15,7 @@ class Vpage extends Cpage {
         $vmenu = parent::get_menu(0);
         echo '<ul class="listpage">';
         foreach ($vmenu as $uri => $link) {
-            echo "<li><a href=\"?id={$uri}\">{$link}</a></li>";
+            echo "\n<li><a class='del' href=\"\"><img src='../img/del.ico' alt='{$uri}'/></a><a href=\"?id={$uri}\">{$link}</a></li>";
         }
         echo '</ul>';
     }
@@ -38,11 +38,11 @@ class Vpage extends Cpage {
         $res = parent::menu_pos($iscreate);
         $count = count($res);
         foreach ($res as $name => $pos) {
-            if ($iscreate == 'create'){
-                $sel = $pos == $count? 'selected' : null;
+            if ($iscreate == 'Create'){
+                $sel = $pos == $count ? 'selected' : null;
                 echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>\n";
             }else{
-                $sel = $pos == $selected? 'selected' : null;
+                $sel = $pos == $selected ? 'selected' : null;
                 echo "<option value=\"{$pos}\" {$sel}>{$pos} - {$name}</option>\n";
             }
         }

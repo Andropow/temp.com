@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once '../config/db_config.php';
 require_once Config::app_path() . "views/vpage.php";
 require_once Config::app_path() . 'controllers/cpage.php';
@@ -7,6 +8,9 @@ $vp = new Vpage();
 $page_button_name;
 $id = filter_input(INPUT_GET, 'id');
 $cur_page = null;
+if (!$_SESSION['login']) {
+   // require_once Config::app_path() . "views/vlogin.php";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,12 +26,9 @@ $cur_page = null;
     <body>
         <div class="wrapper">
             <div class="middle">
-
                 <div class="container">
                     <main class="content">
                         <?php
-                        require_once Config::app_path() . "views/vlogin.php";
-                       
                         switch (filter_input(INPUT_POST, 'submit')) {
                             case 'Create':
                                 $cp->create_page(filter_input_array(INPUT_POST));
@@ -48,6 +49,8 @@ $cur_page = null;
                         } elseif (filter_input(INPUT_GET, 'page')) {
                             $page_button_name = 'Create';
                             require_once Config::app_path() . "views/vcreate.php";
+                        }elseif(filter_input(INPUT_GET, 'delete')){
+                            $cp->delete_page(filter_input(INPUT_GET, 'delete'));
                         }
                         ?>
                     </main><!-- .content -->

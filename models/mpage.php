@@ -65,4 +65,9 @@ class Mpage extends Db{
         $sql = "UPDATE tempdb.pages SET `menu_position` = `menu_position` + 1 where `menu_position` >= {$pos}";
         $this->sql($sql);
     }
+    
+    function delete_page($id){
+        $sql = "delete from tempdb.pages where `menu_position` = {$id} limit 1";
+        $this->sql($sql);
+    }
 }

@@ -28,7 +28,7 @@ class Db extends Config {
     public function sql($query){
         $res =  $this->conect->query($query);
         if(!$res){
-            die("Database query faild ".mysqli_error($this->conect));
+            die("Database query faild ");
         }
         return $res;
     }

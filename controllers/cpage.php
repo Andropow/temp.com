@@ -38,16 +38,20 @@ class Cpage extends Mpage {
         return parent::update_page($post);
     }
 
-    function menu_pos($iscreate = 'update') {
+    function menu_pos($iscreate = 'Update') {
         $res = parent::menu_pos();
         while ($row = $res->fetch_assoc()) {
             $menu[$row['menu_name']] = $row['menu_position'];
         }
         $count = count($menu) + 1;
-        if ($iscreate == 'create') {
+        if ($iscreate == 'Create') {
             $menu['In last position'] = $count;
         }
         return $menu;
+    }
+    
+    function delete_page($id) {
+        parent::delete_page($id);
     }
 
 }

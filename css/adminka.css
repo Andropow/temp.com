@@ -1,8 +1,8 @@
 body {
     //font: 12px/18px Arial, sans-serif;
-/*    background-color: rgba(0, 0, 0, 0.9);
-    background: rgba(0, 0, 0, 0.9);
-    color: rgba(0, 0, 0, 0.9);*/
+    /*    background-color: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.9);
+        color: rgba(0, 0, 0, 0.9);*/
     height: 100%;
 }
 .wrapper {
@@ -64,9 +64,11 @@ ul li{
     margin-top: 5px;
 }
 
-li > ul > li > a{
+/*li > ul > li > a{
     color: #1E90FF;
-}
+}*/
+
+
 
 li > a{
     font-weight: bold;
@@ -78,6 +80,11 @@ li > a{
     -webkit-text-fill-color: transparent;
     -moz-background-clip: initial;
     -moz-text-decoration-color: transparent;
+}
+
+.del > img{ 
+    height: 16px;
+    margin-right: 3%;
 }
 
 li a:hover{
@@ -151,8 +158,6 @@ input{
     clear: both;
 }
 
-
-
 .button:hover {
     background: none;
     background-color: #1F1F1F;
@@ -205,7 +210,7 @@ label{
 }
 
 .hide{
-    visibility: hidden;
+    // visibility: hidden;
     margin: -10px;
     position: absolute;
     top: 0;
@@ -217,4 +222,6 @@ label{
     color: rgba(0, 0, 0, 0.9);
     z-index: 9;
 }
+
+
 
