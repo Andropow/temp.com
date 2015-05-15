@@ -1,8 +1,8 @@
 body {
     //font: 12px/18px Arial, sans-serif;
-    /*    background-color: rgba(0, 0, 0, 0.9);
-        background: rgba(0, 0, 0, 0.9);
-        color: rgba(0, 0, 0, 0.9);*/
+        background-color: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.8);
+        color: rgba(0, 0, 0, 0.9);
     height: 100%;
 }
 .wrapper {
@@ -81,7 +81,7 @@ li > a{
     -moz-text-decoration-color: transparent;
 }
 
-.del > img{ 
+.del > img, .delart > img{ 
     height: 16px;
     margin-right: 3%;
 }
@@ -215,7 +215,7 @@ label{
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.9);
     color: rgba(0, 0, 0, 0.9);
     z-index: 9;
 }
@@ -225,13 +225,24 @@ label{
     position: relative;
 }
 
-.logout > hr{
-    
+.logout a {
+    text-decoration: none;
+    border: 2px solid #00CD00;
+    padding: 5px;
+    border-radius: 10px;
+    background: linear-gradient(135deg,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%);
+    color: whitesmoke;
+    font-weight: bolder;
 }
 
-.logout > a {
-    position: relative;
-   
+.logout a:hover{
+     border: 2px solid #FF0000;
+     color: #FF0000;
 }
+
+h3 > span{
+    color: #26558b;
+}
+
 
 

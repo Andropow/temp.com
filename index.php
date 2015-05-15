@@ -1,6 +1,8 @@
 <?php
 require_once '/views/vpage.php';
+require_once '/views/varticles.php';
 $vp = new Vpage();
+$varticle = new Varticlles();
 $id = filter_input(INPUT_GET, 'id');
 $page = $vp->get_page($id);
 ?>
@@ -28,7 +30,9 @@ $page = $vp->get_page($id);
             </header>
             <div class="middle">
                 <div class="container">
-                    <?php $vp->get_content($id); ?>
+                    <?php $vp->get_content($id); 
+                    $page['Id'] == 1 ? $varticle->get_articles(): null;
+                    ?>
                 </div>
             </div>
             <footer class='footer'> </footer>

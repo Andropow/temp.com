@@ -13,7 +13,7 @@ class Vpage extends Cpage {
 
     function list_pages() {
         $vmenu = parent::get_menu(0);
-        echo '<ul class="listpage">';
+        echo '<ul >';
         foreach ($vmenu as $uri => $link) {
             echo "\n<li><a class='del' href=\"\"><img src='../img/del.ico' alt='{$uri}'/></a><a href=\"?id={$uri}\">{$link}</a></li>";
         }
@@ -29,9 +29,6 @@ class Vpage extends Cpage {
         settype($id, 'integer');
         $res = parent::get_content($id);
         echo $res;
-        if (!$id || $id == 1) {
-            require_once dirname(__FILE__) . "/../views/varticles.php";
-        }
     }
     
     function menu_pos($iscreate, $selected) {

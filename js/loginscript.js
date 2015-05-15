@@ -6,6 +6,14 @@ $(document).ready(function () {
             sender.currentTarget.href = path;
         }
     });
+    
+    $(".delart").click(function (sender) {
+        if (confirm("Ви дійсьно хочете видалити статтю?")) {
+            var curent = sender.currentTarget;
+            var path = curent.origin + curent.pathname + '?deleteart=' + sender.target.alt;
+            sender.currentTarget.href = path;
+        }
+    });
 
     $("textarea").ready(function () {
         tinymce.init({
