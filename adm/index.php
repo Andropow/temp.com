@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION['login'])) {
+    header("Location: login.php");
+}
 require_once '../config/db_config.php';
 require_once Config::app_path() . "views/vpage.php";
 require_once Config::app_path() . 'controllers/cpage.php';
@@ -8,9 +11,6 @@ $vp = new Vpage();
 $page_button_name;
 $id = filter_input(INPUT_GET, 'id');
 $cur_page = null;
-if (!$_SESSION['login']) {
-   // require_once Config::app_path() . "views/vlogin.php";
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -25,6 +25,8 @@ if (!$_SESSION['login']) {
     </head>
     <body>
         <div class="wrapper">
+            <div class="logout">
+            </div>
             <div class="middle">
                 <div class="container">
                     <main class="content">
@@ -49,15 +51,17 @@ if (!$_SESSION['login']) {
                         } elseif (filter_input(INPUT_GET, 'page')) {
                             $page_button_name = 'Create';
                             require_once Config::app_path() . "views/vcreate.php";
-                        }elseif(filter_input(INPUT_GET, 'delete')){
+                        } elseif (filter_input(INPUT_GET, 'delete')) {
                             $cp->delete_page(filter_input(INPUT_GET, 'delete'));
-                        }
+                        } 
                         ?>
                     </main><!-- .content -->
                 </div><!-- .container-->
 
 
                 <aside class="left-sidebar">
+                    <h4>You are logged how: <?= $_SESSION['login']; ?>
+                    <a href="http://<?=  filter_input(INPUT_SERVER, 'HTTP_HOST');?>/temp.com/adm/login.php">Logout</a></h4>
                     <ul>
                         <li><a href="?page=create">Create Page</a></li>
                         <li><a href="?page=list">List Page</a>

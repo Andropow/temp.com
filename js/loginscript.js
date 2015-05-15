@@ -1,12 +1,4 @@
 $(document).ready(function () {
-
-//    if(true){
-//        $(".hide").css("visibility", "visible");
-//    }
-//    $(".hide").click(function () {
-//        
-//    });//css("visibility", "hidden");
-    
     $(".del").click(function (sender) {
         if (confirm("Ви дійсьно хочете видалити сторінку?")) {
             var curent = sender.currentTarget;

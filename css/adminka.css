@@ -182,7 +182,8 @@ label{
 #fg_membersite{
     position: fixed;
     z-index: 10;
-    left: 35%;
+    vertical-align:auto;
+    left: 38%;
     margin: auto;
     margin-top: 10%;
     width: 310px;
@@ -190,7 +191,7 @@ label{
 
 #Sign-In{
     width: 300px;
-    vertical-align: central;
+    vertical-align:auto;
     border:3px solid #a1a1a1;
     border-radius:20px;
     box-shadow: 7px 7px 6px;
@@ -210,18 +211,21 @@ label{
 }
 
 .hide{
-    // visibility: hidden;
     margin: -10px;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 120%;
-    width: 101%;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.2);
     color: rgba(0, 0, 0, 0.9);
     z-index: 9;
 }
 
+.logout{
+    position: relative;
+    float: left;
+}
 
 
