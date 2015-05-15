@@ -7,7 +7,6 @@ body {
 }
 .wrapper {
     width: 100%;
-    min-width: 1000px;
     min-height: 100%;
     height: auto !important;
     height: 100%;
@@ -27,7 +26,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 70%;
     float: right;
     overflow: hidden;
 }
@@ -58,17 +57,17 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 }
 
+@media screen and (max-width: 800px){
+    .left-sidebar {
+        width: 30%;
+    }
+}
+
 ul li{
     list-style: none;
     margin-bottom: 5px;
     margin-top: 5px;
 }
-
-/*li > ul > li > a{
-    color: #1E90FF;
-}*/
-
-
 
 li > a{
     font-weight: bold;
@@ -110,10 +109,8 @@ input{
 }
 
 .forms{
-
     padding: 10px;
-    width: 70%;
-    //margin: 20% 25%;
+    width: 90%;
     vertical-align: central;
     border:3px solid #a1a1a1;
     border-radius:20px;
@@ -224,8 +221,17 @@ label{
 }
 
 .logout{
+    width: 100%;
     position: relative;
-    float: left;
+}
+
+.logout > hr{
+    
+}
+
+.logout > a {
+    position: relative;
+   
 }
 
 

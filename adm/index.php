@@ -26,6 +26,8 @@ $cur_page = null;
     <body>
         <div class="wrapper">
             <div class="logout">
+                <a href="http://<?=  filter_input(INPUT_SERVER, 'HTTP_HOST');?>/temp.com/adm/login.php">Logout</a>
+                <hr/>
             </div>
             <div class="middle">
                 <div class="container">
@@ -57,11 +59,7 @@ $cur_page = null;
                         ?>
                     </main><!-- .content -->
                 </div><!-- .container-->
-
-
-                <aside class="left-sidebar">
-                    <h4>You are logged how: <?= $_SESSION['login']; ?>
-                    <a href="http://<?=  filter_input(INPUT_SERVER, 'HTTP_HOST');?>/temp.com/adm/login.php">Logout</a></h4>
+                <aside class="left-sidebar"> 
                     <ul>
                         <li><a href="?page=create">Create Page</a></li>
                         <li><a href="?page=list">List Page</a>
