@@ -1,8 +1,10 @@
 <?php
 require_once '/views/vpage.php';
 require_once '/views/varticles.php';
+require_once '/views/vnews.php';
 $vpage = new Vpage();
 $varticle = new Varticlles();
+$vnews = new Vnews();
 $id = filter_input(INPUT_GET, 'id');
 $page = $vpage->get_page($id);
 ?>
@@ -32,6 +34,7 @@ $page = $vpage->get_page($id);
                 <div class="container">
                     <?php $vpage->get_content($id); 
                     $page['Id'] == 1 ? $varticle->get_articles(): null;
+                    $page['Id'] == 2 ? $vnews->get_all_news(): null;
                     ?>
                 </div>
             </div>

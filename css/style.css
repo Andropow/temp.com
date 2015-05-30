@@ -116,7 +116,7 @@ q:before, q:after {
     float: left;
 }
 
-.article{
+.article, .news{
     font-size: 1.3em;
     display: inline-block;
     margin: 20px 3%;   
@@ -130,7 +130,7 @@ q:before, q:after {
     box-shadow: -16px 13px 5px 0px rgba(0,0,0,0.75);
 }
 
-.article > div,h1{
+.article > div, .news > div ,h1{
     margin: 10px;
     padding: 10px;
 
