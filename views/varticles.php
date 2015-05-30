@@ -20,7 +20,4 @@ class Varticlles extends Carticles {
         }
         echo '</ul>';
     }
-    
-    
-
 }

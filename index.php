@@ -1,10 +1,10 @@
 <?php
 require_once '/views/vpage.php';
 require_once '/views/varticles.php';
-$vp = new Vpage();
+$vpage = new Vpage();
 $varticle = new Varticlles();
 $id = filter_input(INPUT_GET, 'id');
-$page = $vp->get_page($id);
+$page = $vpage->get_page($id);
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -25,12 +25,12 @@ $page = $vp->get_page($id);
                     <img src='img/Logo_1.png' alt='logo'/>
                 </div>
                 <nav id='menu' class='cl-effect-21'>
-                    <?php $vp->get_menu(); ?>   
+                    <?php $vpage->get_menu(); ?>   
                 </nav>
             </header>
             <div class="middle">
                 <div class="container">
-                    <?php $vp->get_content($id); 
+                    <?php $vpage->get_content($id); 
                     $page['Id'] == 1 ? $varticle->get_articles(): null;
                     ?>
                 </div>

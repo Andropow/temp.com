@@ -14,6 +14,14 @@ $(document).ready(function () {
             sender.currentTarget.href = path;
         }
     });
+    
+     $(".delnew").click(function (sender) {
+        if (confirm("Ви дійсьно хочете видалити новину?")) {
+            var curent = sender.currentTarget;
+            var path = curent.origin + curent.pathname + '?deletenews=' + sender.target.alt;
+            sender.currentTarget.href = path;
+        }
+    });
 
     $("textarea").ready(function () {
         tinymce.init({

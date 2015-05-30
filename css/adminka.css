@@ -81,7 +81,7 @@ li > a{
     -moz-text-decoration-color: transparent;
 }
 
-.del > img, .delart > img{ 
+.del > img, .delart > img, .delnew > img{ 
     height: 16px;
     margin-right: 3%;
 }

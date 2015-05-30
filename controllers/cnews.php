@@ -39,5 +39,5 @@ class Cnews extends Mnews {
     function delete_news($id) {
         parent::delete_news($id);
     }
-
 }
+

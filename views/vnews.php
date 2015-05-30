@@ -19,7 +19,7 @@ class Vnews extends Cnews {
         }
         echo '<ul>';
         foreach ($res as $uri => $link) {
-            echo "\n<li><a class='del' href=\"\"><img src='../img/del.ico' alt='{$uri}'/></a><a href=\"?id={$uri}\">{$link}</a></li>";
+            echo "\n<li><a class='delnew' href=\"\"><img src='../img/del.ico' alt='{$uri}'/></a><a href=\"?newsId={$uri}\">{$link}</a></li>";
         }
         echo '</ul>';
     }
