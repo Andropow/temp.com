@@ -23,6 +23,10 @@ $page = $vpage->get_page($id);
     <body>
         <div class="wrapper">
             <header class='header'>
+                <form class="form-wrapper cf" method="get">
+                    <input type="text" name="search" placeholder="Пошук" required>
+                    <button type="submit">Search</button>
+                </form>
                 <div id='logo'>
                     <img src='img/Logo_1.png' alt='logo'/>
                 </div>
@@ -32,9 +36,14 @@ $page = $vpage->get_page($id);
             </header>
             <div class="middle">
                 <div class="container">
-                    <?php $vpage->get_content($id); 
-                    $page['Id'] == 1 ? $varticle->get_articles(): null;
-                    $page['Id'] == 2 ? $vnews->get_all_news(): null;
+                    <?php
+                    if (filter_input(INPUT_GET, 'search')) {
+                        $vpage->search(filter_input(INPUT_GET, 'search'));
+                    } else {
+                        $vpage->get_content($id);
+                        $page['Id'] == 1 ? $varticle->get_articles() : null;
+                        $page['Id'] == 2 ? $vnews->get_all_news() : null;
+                    }
                     ?>
                 </div>
             </div>

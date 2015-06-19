@@ -53,5 +53,14 @@ class Cpage extends Mpage {
     function delete_page($id) {
         parent::delete_page($id);
     }
-
+    
+    function search($text) {
+        $res = parent::search($text);
+        foreach ($res as $value) {
+            while ($row = $value->fetch_assoc()) {
+                $articles[$row['Title']] = $row['Article'];
+            }
+        }
+        return $articles;
+    }
 }

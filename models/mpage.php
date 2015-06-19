@@ -70,4 +70,14 @@ class Mpage extends Db{
         $sql = "delete from tempdb.pages where `menu_position` = {$id} limit 1";
         $this->sql($sql);
     }
+    
+    public function search($text){
+        $sql = "select `Title`, `Article` from tempdb.articles where `Title` like '%{$text}%' or"
+                ."`Article` like '%{$text}%'";
+        $sql1 = "select `Title`, `Article` from tempdb.news where `Title` like '%{$text}%' or"
+                ."`Article` like '%{$text}%'";        
+        $res[] =  $this->sql($sql);
+        $res[] =  $this->sql($sql1);
+        return $res;
+    }
 }

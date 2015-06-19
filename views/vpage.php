@@ -44,5 +44,11 @@ class Vpage extends Cpage {
             }
         }
     }
-
+    
+    function search($text) {
+        $res = parent::search($text);
+         foreach ($res as $title => $article) {
+            echo "<div class='article'><h1>" . $title . "</h1><div>" . $article . "</div></div>";
+        }
+    }
 }

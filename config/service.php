@@ -45,6 +45,6 @@ TEXT;
             return $str;
         }
         return NULL;
-    }
-
+    }  
+    
 }
