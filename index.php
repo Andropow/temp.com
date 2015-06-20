@@ -42,7 +42,7 @@ $page = $vpage->get_page($id);
                     } else {
                         $vpage->get_content($id);
                         $page['Id'] == 1 ? $varticle->get_articles() : null;
-                        $page['Id'] == 2 ? $vnews->get_all_news() : null;
+                        $page['Id'] == 4 ? $vnews->get_all_news() : null;
                     }
                     ?>
                 </div>
