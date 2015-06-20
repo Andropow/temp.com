@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . '/../models/mpage.php';
 
 class Cpage extends Mpage {
 
-    function get_menu($visible) {
+    function get_menu($visible = 1) {
         $res = parent::get_menu($visible); //return link on result query
         while ($row = $res->fetch_assoc()) {
             $menu[$row['menu_position']] = $row['menu_name']; //forming array in result query

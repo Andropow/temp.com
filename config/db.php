@@ -12,13 +12,20 @@ class Db extends Config {
     }
     
     public function __destruct() {
-        $this->conect->close();  
+        //$this->conect->close();  
+        unset($this->conect);
     }
 
     private function open_connection() {
        // $this->conect = mysqli_connect("127.0.0.1", "root", "", "tempdb", 3306)
-        $this->conect = mysqli_connect($this->DB_HOST, $this->DB_USER, $this->DB_PAS, $this->DB_NAME, $this->PORT)
-        or die("Error " . mysqli_error($this->conect)); 
+        try{
+            if ($this->conect!= null){
+                unset($this->conect);
+            }
+             $this->conect = mysqli_connect($this->DB_HOST, $this->DB_USER, $this->DB_PAS, $this->DB_NAME, $this->PORT);
+        }
+        catch (Exception $e){}
+       // or die("Error " . mysqli_error($this->conect)); 
         if (!$this->conect) {
             die("Database conection failed: ");
         }

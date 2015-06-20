@@ -10,7 +10,7 @@
     <input type="text" name="menu_name" value="<?= $cur_page['menu_name']; ?>"/><br/>
     <label>Menu position: </label>
     <select name="menu_position">
-        <?php $menu = $vpage->menu_pos($page_button_name, $cur_page['menu_position']); ?>
+        <?php $menu = $vpage->menu_position($page_button_name, $cur_page['menu_position']); ?>
     </select><br/>
     <label>Visiblity: </label>
     <select name="visible">

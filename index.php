@@ -1,7 +1,7 @@
 <?php
-require_once '/views/vpage.php';
-require_once '/views/varticles.php';
-require_once '/views/vnews.php';
+require_once 'views/vpage.php';
+require_once 'views/varticles.php';
+require_once 'views/vnews.php';
 $vpage = new Vpage();
 $varticle = new Varticlles();
 $vnews = new Vnews();
@@ -31,7 +31,7 @@ $page = $vpage->get_page($id);
                     <img src='img/Logo_1.png' alt='logo'/>
                 </div>
                 <nav id='menu' class='cl-effect-21'>
-                    <?php $vpage->get_menu(); ?>   
+                    <?php $vpage->vget_menu(); ?>   
                 </nav>
             </header>
             <div class="middle">

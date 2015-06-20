@@ -4,7 +4,7 @@ require_once dirname(__FILE__) . '/../controllers/cpage.php';
 
 class Vpage extends Cpage {
 
-    function get_menu() {
+    function vget_menu() {
         $vmenu = parent::get_menu(1);
         foreach ($vmenu as $uri => $link) {
             echo "<a href=\"?id={$uri}\">{$link}</a>";
@@ -31,7 +31,7 @@ class Vpage extends Cpage {
         echo $res;
     }
     
-    function menu_pos($iscreate, $selected) {
+    function menu_position($iscreate, $selected) {
         $res = parent::menu_pos($iscreate);
         $count = count($res);
         foreach ($res as $name => $pos) {
