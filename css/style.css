@@ -93,11 +93,11 @@ q:before, q:after {
     content:"";
     display:table;
 }
- 
+
 .cf:after{
     clear:both;
 }
- 
+
 .cf{
     display: inline-block;
     zoom:0.7;   
@@ -115,9 +115,9 @@ q:before, q:after {
     border-radius: 10px;
     box-shadow: 0 1px 1px rgba(0,0,0,.4) inset, 0 1px 0 rgba(255,255,255,.2);
 }
- 
+
 /* Стили поля ввода текста */
- 
+
 .form-wrapper input {
     width: 330px;
     height: 20px;
@@ -128,31 +128,31 @@ q:before, q:after {
     background: #eee;
     border-radius: 3px 0 0 3px;      
 }
- 
+
 .form-wrapper input:focus {
     outline: 0;
     background: #fff;
     box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
 }
- 
+
 .form-wrapper input::-webkit-input-placeholder {
-   color: #999;
-   font-weight: normal;
-   font-style: italic;
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
 }
- 
+
 .form-wrapper input:-moz-placeholder {
     color: #999;
     font-weight: normal;
     font-style: italic;
 }
- 
+
 .form-wrapper input:-ms-input-placeholder {
     color: #999;
     font-weight: normal;
     font-style: italic;
 }    
- 
+
 /* Кнопка отправки формы */
 .form-wrapper button {
     overflow: visible;
@@ -170,17 +170,17 @@ q:before, q:after {
     border-radius: 0 3px 3px 0;      
     text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
 }   
-   
+
 .form-wrapper button:hover{     
     background: #e54040;
 }   
-   
+
 .form-wrapper button:active,
 .form-wrapper button:focus{   
     background: #c42f2f;
     outline: 0;   
 }
- 
+
 .form-wrapper button:before { /* стрелка влево */
     content: '';
     position: absolute;
@@ -190,16 +190,16 @@ q:before, q:after {
     top: 12px;
     left: -6px;
 }
- 
+
 .form-wrapper button:hover:before{
     border-right-color: #e54040;
 }
- 
+
 .form-wrapper button:focus:before,
 .form-wrapper button:active:before{
-        border-right-color: #c42f2f;
+    border-right-color: #c42f2f;
 }      
- 
+
 .form-wrapper button::-moz-focus-inner { /* Удаляем дополнительное пространство рядом с кнопкой в Mozilla Firefox */
     border: 0;
     padding: 0;
@@ -401,6 +401,201 @@ nav a:focus {
     background-position:0 -14px;
 }
 
+/*---------------feedback*/
+/* === Remove input autofocus webkit === */
+*:focus {outline: none;}
+
+/* === Form Typography === */
+.contact_form h2, .contact_form label {font-family:Georgia, Times, "Times New Roman", serif;}
+.form_hint, .required_notification {font-size: 11px;}
+.contact_form{
+    width:100%;
+}
+/* === List Styles === */
+.contact_form ul {
+    width: 100%;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+}
+.contact_form li{
+    padding:12px; 
+    border-bottom:1px solid #eee;
+    position:relative;
+} 
+.contact_form li:first-child, .contact_form li:last-child {
+    border-bottom:1px solid #777;
+}
+
+/* === Form Header === */
+.contact_form h2 {
+    margin:0;
+    display: inline;
+}
+.required_notification {
+    color:red; 
+    margin:5px 0 0 0; 
+    display:inline;
+    float:right;
+}
+
+/* === Form Elements === */
+.contact_form label {
+    width:150px;
+    margin-top: 3px;
+    display:inline-block;
+    float:left;
+    padding:3px;
+}
+.contact_form input {
+    height:20px; 
+    width:220px; 
+    padding:5px 8px;
+}
+.contact_form textarea {padding:8px; width:80%;}
+.contact_form button {margin-left:156px;}
+
+/* form element visual styles */
+.contact_form input, .contact_form textarea { 
+    border:1px solid #aaa;
+    box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+    border-radius:2px;
+    padding-right:30px;
+    -moz-transition: padding .25s; 
+    -webkit-transition: padding .25s; 
+    -o-transition: padding .25s;
+    transition: padding .25s;
+}
+.contact_form input:focus, .contact_form textarea:focus {
+    background: #fff; 
+    border:1px solid #555; 
+    box-shadow: 0 0 3px #aaa; 
+    padding-right:70px;
+}
+
+/* === HTML5 validation styles === */	
+.contact_form input:required, .contact_form textarea:required {
+    background: #fff url(../img/red_asterisk.png) no-repeat 98% center;
+}
+.contact_form input:required:valid, .contact_form textarea:required:valid {
+    background: #fff url(../img/valid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #5cd053;
+    border-color: #28921f;
+}
+.contact_form input:focus:invalid, .contact_form textarea:focus:invalid {
+    background: #fff url(../img/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535
+}
+
+/* === Form hints === */
+.form_hint {
+    background: #d45252;
+    border-radius: 3px 3px 3px 3px;
+    color: white;
+    margin-left:8px;
+    padding: 1px 6px;
+    z-index: 999; /* hints stay above all other elements */
+    position: absolute; /* allows proper formatting if hint is two lines */
+    display: none;
+}
+.form_hint::before {
+    content: "\25C0";
+    color:#d45252;
+    position: absolute;
+    top:1px;
+    left:-6px;
+}
+.contact_form input:focus + .form_hint {display: inline;}
+.contact_form input:required:valid + .form_hint {background: #28921f;}
+.contact_form input:required:valid + .form_hint::before {color:#28921f;}
+
+/* === Button Style === */
+button.submit {
+    background-color: #68b12f;
+    background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+    background: -webkit-linear-gradient(top, #68b12f, #50911e);
+    background: -moz-linear-gradient(top, #68b12f, #50911e);
+    background: -ms-linear-gradient(top, #68b12f, #50911e);
+    background: -o-linear-gradient(top, #68b12f, #50911e);
+    background: linear-gradient(top, #68b12f, #50911e);
+    border: 1px solid #509111;
+    border-bottom: 1px solid #5b992b;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    box-shadow: inset 0 1px 0 0 #9fd574;
+    -webkit-box-shadow: 0 1px 0 0 #9fd574 inset ;
+    -moz-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -ms-box-shadow: 0 1px 0 0 #9fd574 inset;
+    -o-box-shadow: 0 1px 0 0 #9fd574 inset;
+    color: white;
+    font-weight: bold;
+    padding: 6px 20px;
+    text-align: center;
+    text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover {
+    opacity:.85;
+    cursor: pointer; 
+}
+button.submit:active {
+    border: 1px solid #20911e;
+    box-shadow: 0 0 10px 5px #356b0b inset; 
+    -webkit-box-shadow:0 0 10px 5px #356b0b inset ;
+    -moz-box-shadow: 0 0 10px 5px #356b0b inset;
+    -ms-box-shadow: 0 0 10px 5px #356b0b inset;
+    -o-box-shadow: 0 0 10px 5px #356b0b inset;	
+}
+
+.intense_container, .feedback{
+    margin: 20px;
+    margin-right: 8%;
+    position: relative;
+    display: block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 80%;
+    padding: 20px;
+    overflow: hidden;
+    border: none;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+    font: normal 16px/1 "Times New Roman", Times, serif;
+    color: rgba(255,255,255,1);
+    text-align: center;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    background: -webkit-linear-gradient(90deg, rgba(1,12,2,1) 0, rgba(14,132,14,1) 100%);
+    background: -moz-linear-gradient(0deg, rgba(1,12,2,1) 0, rgba(14,132,14,1) 100%);
+    background: linear-gradient(0deg, rgba(1,12,2,1) 0, rgba(14,132,14,1) 100%);
+    background-position: 50% 50%;
+    -webkit-background-origin: padding-box;
+    background-origin: padding-box;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-background-size: auto auto;
+    background-size: auto auto;
+    -webkit-box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+    box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3) ;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2) ;
+    float:left; 
+    margin-left:15px; 
+}
+
+.intense_container{
+    position: absolute;
+    width: 50%;
+    display: inline-block;
+    float:right;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+}
 
 //-----------------------------------------------------------------
 @media screen and (max-width: 1000px){
@@ -421,11 +616,17 @@ nav a:focus {
         margin: 15px 10px;
     }
     #slides .slidesNext {
-    margin-left: 96%;
+        margin-left: 96%;
     }
 
     .slidesPagination {
         left: 38%;
+    }
+    .intense_container, .feedback{
+        float: left;
+        position: relative;
+        width: 80%;
+        margin:10px 7%;
     }
 }
 
@@ -434,7 +635,7 @@ nav a:focus {
         margin: 3px 10px;
     }
     #slides .slidesNext {
-    margin-left: 95%;
+        margin-left: 95%;
     }
 
     .slidesPagination {
