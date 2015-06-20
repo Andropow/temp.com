@@ -334,7 +334,6 @@ nav a:focus {
     transform: translateY(0px);
 }
 
-
 //----------------------Slider--------------------------
 #container {
     position:absolute;
@@ -401,6 +400,8 @@ nav a:focus {
 .slidesPagination li.slidesCurrent a {
     background-position:0 -14px;
 }
+
+
 //-----------------------------------------------------------------
 @media screen and (max-width: 1000px){
     .header{

@@ -40,9 +40,15 @@ $page = $vpage->get_page($id);
                     if (filter_input(INPUT_GET, 'search')) {
                         $vpage->search(filter_input(INPUT_GET, 'search'));
                     } else {
+                        Service::get_feedback_form($page['Id']);
                         $vpage->get_content($id);
                         $page['Id'] == 1 ? $varticle->get_articles() : null;
-                        $page['Id'] == 4 ? $vnews->get_all_news() : null;
+                        $page['Id'] == 4 ? $vnews->get_all_news() : null;                       
+                    }
+                    if (filter_input(INPUT_POST, 'send')) {
+                        require_once 'mail/SendMailSmtpClass.php';
+                        $post = filter_input_array(INPUT_POST);
+                        configure_mail_send($posr['client_name'], $post['email'],$post['message']);
                     }
                     ?>
                 </div>
