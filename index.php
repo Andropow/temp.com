@@ -53,7 +53,9 @@ $page = $vpage->get_page($id);
                     ?>
                 </div>
             </div>
-            <footer class='footer'> </footer>
+            <footer class='footer'>
+                <h4>Copyright © 2015 ФГ "ТЕМП"</h4>
+            </footer>
         </div>
     </body>
 </html>
