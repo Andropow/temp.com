@@ -138,12 +138,12 @@ class SendMailSmtpClass {
 }
 
 function configure_mail_send($name, $email_from, $message) {
-    $mailSMTP = new SendMailSmtpClass('novak_andriy@mail.ru', 'xochupiva', 'ssl://smtp.mail.ru', $name, 587); 
+    $mailSMTP = new SendMailSmtpClass('user.service@mail.ru', 'pas', 'ssl://smtp.mail.ru', $name, 587); 
  
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-type: text/html; charset=utf-8\r\n"; // кодировка письма
     $headers .= "From: {$name} <{$email_from}>\r\n"; // от кого письмо
-    $result = $mailSMTP->send('kruzerandeiy@gmail.com', 'Тема письма', $message, $headers);
+    $result = $mailSMTP->send('temp.suport@gmail.com', 'Тема письма', $message, $headers);
     if ($result === true) {
         echo "Письмо успешно отправлено";
     } else {
